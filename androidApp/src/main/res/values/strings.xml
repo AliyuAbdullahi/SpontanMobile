@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_button_label">Login</string>
+    <string name="signup_button_label">Signup</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="dont_have_account">Don\'t have account? Signup</string>
+    <string name="already_have_account_login">Already have account? Login</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="title_activity_events_list">EventsListActivity</string>
+</resources>
