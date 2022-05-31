@@ -43,9 +43,28 @@ extension LoginViewState {
     }
 }
 
-class LoginViewModel : ObservableObject {
-    
+protocol ILoginUseCase {
+    func invoke(requestModel: LoginRequestModel, handler: @escaping (LoginResponseDomainData?, Error?) -> Void)
+}
+
+class LoginUseCaseImp : ILoginUseCase {
     private let useCase: LoginUseCase = DI.shared.loginUseCase
+    
+    func invoke(requestModel: LoginRequestModel, handler: @escaping (LoginResponseDomainData?, Error?) -> Void) {
+        useCase.invoke(requestModel: requestModel, completionHandler: handler)
+    }
+}
+
+class LoginViewModel : ObservableObject {
+    private var useCase: ILoginUseCase
+    
+    init(useCase: ILoginUseCase) {
+        self.useCase = LoginUseCaseImp()
+    }
+    
+    convenience init() {
+        self.init(useCase: LoginUseCaseImp())
+    }
     
     @Published
     var currentState: LoginViewState = LoginViewState()
@@ -55,7 +74,15 @@ class LoginViewModel : ObservableObject {
     }
     
     func performLogin() {
-        let newState = self.currentState.copy(isLoading: true)
+        do {
+            try login()
+        } catch {
+            setState(newState: self.currentState.copy(error: "Failed to login, check your input"))
+        }
+    }
+    
+    private func login() throws {
+        let newState = self.currentState.copy(isLoading: true, error: "")
         setState(newState: newState)
         let loginRequestModel = LoginRequestModel(email: currentState.email, password: currentState.password)
         

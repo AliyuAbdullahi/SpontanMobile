@@ -69,6 +69,16 @@ class SignupViewModel : ObservableObject {
     }
     
     func performSignUp() {
+        do {
+            try signup()
+        } catch {
+            setState(newState: self.currentState.copy(error: "Signup failed check your input"))
+        }
+    }
+    
+    private func signup() throws {
+        let newState = self.currentState.copy(isLoading: true, error: "")
+        setState(newState: newState)
         let model = SignUpRequestModel(name: currentState.name, email: currentState.email, password: currentState.password)
         signupUseCase.invoke(requestModel: model){ result, error in
             if let result = result {
