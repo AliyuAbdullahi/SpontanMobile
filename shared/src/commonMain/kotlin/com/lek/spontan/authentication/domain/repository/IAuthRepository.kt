@@ -1,4 +1,4 @@
-package com.lek.spontan.authentication.domain
+package com.lek.spontan.authentication.domain.repository
 
 import com.lek.spontan.authentication.domain.models.LoginRequestModel
 import com.lek.spontan.authentication.domain.models.LoginResponseDomainData

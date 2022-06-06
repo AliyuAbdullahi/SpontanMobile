@@ -1,0 +1,16 @@
+CREATE TABLE User (
+name TEXT NOT NULL,
+email TEXT NOT NULL PRIMARY KEY,
+photo TEXT,
+accessToken TEXT
+);
+
+insertUser:
+INSERT OR REPLACE INTO User(name, email, photo, accessToken)
+VALUES(?, ?, ?, ?);
+
+deleteUser:
+DELETE FROM User;
+
+getUser:
+SELECT * FROM User;

@@ -1,6 +1,6 @@
 package com.lek.spontan.authentication.data
 
-import com.lek.spontan.authentication.domain.IAuthRepository
+import com.lek.spontan.authentication.domain.repository.IAuthRepository
 import com.lek.spontan.authentication.domain.models.LoginRequestModel
 import com.lek.spontan.authentication.domain.models.LoginResponse
 import com.lek.spontan.authentication.domain.models.LoginResponseDomainData
@@ -11,16 +11,24 @@ import com.lek.spontan.data.Routes
 class AuthRepository(private val networkInterface: NetworkInterface) : IAuthRepository {
 
     override suspend fun login(loginRequestModel: LoginRequestModel): LoginResponseDomainData =
-        networkInterface.post<LoginRequestModel, LoginResponse>(
-            Routes.LOGIN,
-            loginRequestModel
-        ).toDomainModel()
+        try {
+            networkInterface.post<LoginRequestModel, LoginResponse>(
+                Routes.LOGIN,
+                loginRequestModel
+            ).toDomainModel()
+        } catch (error: Throwable) {
+            LoginResponseDomainData.error(error.message.toString())
+        }
 
     override suspend fun signup(signUpRequestModel: SignUpRequestModel): LoginResponseDomainData =
-        networkInterface.post<SignUpRequestModel, LoginResponse>(
-            Routes.SIGN_UP,
-            signUpRequestModel
-        ).toDomainModel()
+        try {
+            networkInterface.post<SignUpRequestModel, LoginResponse>(
+                Routes.SIGN_UP,
+                signUpRequestModel
+            ).toDomainModel()
+        } catch (error: Throwable) {
+            LoginResponseDomainData.error(error.message.toString())
+        }
 }
 
 fun LoginResponse.toDomainModel() = LoginResponseDomainData(

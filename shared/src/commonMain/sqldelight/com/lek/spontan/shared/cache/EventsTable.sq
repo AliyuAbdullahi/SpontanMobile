@@ -1,0 +1,22 @@
+CREATE TABLE Event (
+id TEXT NOT NULL PRIMARY KEY ,
+title TEXT NOT NULL,
+startTime INTEGER,
+description TEXT,
+color INTEGER,
+coverIamge TEXT
+);
+
+createEvent:
+INSERT INTO Event(id, title, startTime, description, color, coverIamge)
+VALUES (?,?, ?, ?, ?, ?);
+
+deleteEvent:
+DELETE FROM Event
+WHERE id=?;
+
+deleteEvents:
+DELETE FROM Event;
+
+getEvents:
+SELECT * FROM Event;

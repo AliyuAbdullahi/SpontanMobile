@@ -7,7 +7,8 @@ data class SignUpViewState(
     val isLoading: Boolean,
     val isSignUpSuccess: Boolean,
     val accessToken: String,
-    val error: String
+    val error: String,
+    val userHasAccount: Boolean
 ) {
     val isInputValid: Boolean
         get() = name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()
@@ -20,7 +21,8 @@ data class SignUpViewState(
             isLoading = false,
             isSignUpSuccess = false,
             accessToken = "",
-            error = ""
+            error = "",
+            userHasAccount = false
         )
     }
 }
