@@ -15,7 +15,9 @@ struct LoginScreen: View {
     fileprivate func LoginView() -> some View {
         return NavigationView {
             ZStack {
-                if viewModel.currentState.isLoading {
+                if viewModel.currentState.userAlreadyIn {
+                    EventsListScreen()
+                } else if viewModel.currentState.isLoading {
                     LoadingView()
                 } else {
                     VStack {
@@ -51,8 +53,8 @@ struct LoginScreen: View {
     }
     
     var body: some View {
-        if viewModel.currentState.isLoginSuccess {
-            SplashScreen()
+        if viewModel.currentState.userAlreadyIn {
+            EventsListScreen()
         } else {
             LoginView()
         }

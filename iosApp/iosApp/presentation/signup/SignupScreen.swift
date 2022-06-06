@@ -15,7 +15,9 @@ struct SignupScreen: View {
     fileprivate func SignupView() -> some View {
         return NavigationView {
             ZStack {
-                if viewModel.currentState.isLoading {
+                if (viewModel.currentState.userAlreadyIn) {
+                    EventsListScreen()
+                }else if viewModel.currentState.isLoading {
                     LoadingView()
                 } else {
                     VStack {
