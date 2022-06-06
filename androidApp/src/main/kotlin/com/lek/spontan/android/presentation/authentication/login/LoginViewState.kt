@@ -7,7 +7,8 @@ data class LoginViewState(
     val name: String,
     val error: String,
     val isLoading: Boolean,
-    val isLoginSuccess: Boolean
+    val isLoginSuccess: Boolean,
+    val hasLoggedIn: Boolean
 ) {
 
     companion object {
@@ -18,7 +19,8 @@ data class LoginViewState(
             name = "",
             error = "",
             isLoading = false,
-            isLoginSuccess = false
+            isLoginSuccess = false,
+            hasLoggedIn = false
         )
     }
 }

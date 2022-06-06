@@ -43,15 +43,38 @@ extension LoginViewState {
     }
 }
 
+struct LoginModel {
+    var email: String
+    var password: String
+}
+
+struct LoginDomainData {
+    let email: String
+    let name: String
+    let accessToken: String
+}
+
 protocol ILoginUseCase {
-    func invoke(requestModel: LoginRequestModel, handler: @escaping (LoginResponseDomainData?, Error?) -> Void)
+    func invoke(requestModel: LoginModel, handler: @escaping (LoginDomainData?, Error?) -> Void)
+}
+
+extension LoginResponseDomainData {
+    func toDomainResponse() -> LoginDomainData {
+        return LoginDomainData(email: self.email, name: self.name, accessToken: self.accessToken)
+    }
 }
 
 class LoginUseCaseImp : ILoginUseCase {
     private let useCase: LoginUseCase = DI.shared.loginUseCase
     
-    func invoke(requestModel: LoginRequestModel, handler: @escaping (LoginResponseDomainData?, Error?) -> Void) {
-        useCase.invoke(requestModel: requestModel, completionHandler: handler)
+    func invoke(requestModel: LoginModel, handler: @escaping (LoginDomainData?, Error?) -> Void) {
+        useCase.invoke(requestModel: LoginRequestModel(email: requestModel.email, password: requestModel.password)){result, error in
+            if let result = result {
+                handler(result.toDomainResponse(), nil)
+            } else if let error = error {
+                handler(nil, error)
+            }
+        }
     }
 }
 
@@ -84,7 +107,7 @@ class LoginViewModel : ObservableObject {
     private func login() throws {
         let newState = self.currentState.copy(isLoading: true, error: "")
         setState(newState: newState)
-        let loginRequestModel = LoginRequestModel(email: currentState.email, password: currentState.password)
+        let loginRequestModel = LoginModel(email: currentState.email, password: currentState.password)
         
         useCase.invoke(requestModel: loginRequestModel) { result, error in
             if let result = result {
