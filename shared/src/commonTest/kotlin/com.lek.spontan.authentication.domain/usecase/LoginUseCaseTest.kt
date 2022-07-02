@@ -9,6 +9,7 @@ import kotlin.test.Test
 import kotlinx.coroutines.runBlocking
 
 class LoginUseCaseTest {
+
     private val repository: IAuthRepository = mockk(relaxed = true)
     private val loginUseCase = LoginUseCase(repository)
 

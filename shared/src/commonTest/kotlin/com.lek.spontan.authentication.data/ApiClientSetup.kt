@@ -10,7 +10,7 @@ import io.ktor.http.headersOf
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.utils.io.ByteReadChannel
 
-private val failureMockEngine = MockEngine { request ->
+private val failureMockEngine = MockEngine {
     respond(
         content = ByteReadChannel(""),
         status = HttpStatusCode.NotFound,
@@ -24,8 +24,8 @@ val testFailureHttpClient = HttpClient(failureMockEngine) {
     }
 }
 
-fun testSuccessHttpClient(body: String): HttpClient {
-    val engine = MockEngine { request ->
+fun mockSuccessHttpClient(body: String): HttpClient {
+    val engine = MockEngine {
         respond(
             content = ByteReadChannel(body),
             status = HttpStatusCode.OK,

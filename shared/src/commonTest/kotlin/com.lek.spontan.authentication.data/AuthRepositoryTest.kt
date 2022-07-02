@@ -14,7 +14,7 @@ class AuthRepositoryTest {
     @Test
     fun testLoginSuccess(): Unit = runBlocking {
         networkInterface = NetworkInterface(
-            client = testSuccessHttpClient(mockLoginResponse)
+            client = mockSuccessHttpClient(mockLoginResponse)
         )
 
         val testModel = LoginRequestModel(
@@ -49,7 +49,7 @@ class AuthRepositoryTest {
     @Test
     fun testSignUp(): Unit = runBlocking {
         networkInterface = NetworkInterface(
-            client = testSuccessHttpClient(mockLoginResponse)
+            client = mockSuccessHttpClient(mockLoginResponse)
         )
 
         val testModel = SignUpRequestModel(

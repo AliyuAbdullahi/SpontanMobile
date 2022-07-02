@@ -11,16 +11,13 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import platform.UIKit.UIDevice
 
-actual class Platform actual constructor() {
-    actual val platform: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
-}
-
 actual val httpClient: HttpClient = HttpClient(Darwin) {
     install(Logging)
     install(ContentNegotiation) {
         json(Json {
             prettyPrint = true
             isLenient = true
+            ignoreUnknownKeys = true
         })
     }
 }

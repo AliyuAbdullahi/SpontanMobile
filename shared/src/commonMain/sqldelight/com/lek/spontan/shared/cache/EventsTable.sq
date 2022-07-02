@@ -3,13 +3,12 @@ id TEXT NOT NULL PRIMARY KEY ,
 title TEXT NOT NULL,
 startTime INTEGER,
 description TEXT,
-color INTEGER,
 coverIamge TEXT
 );
 
 createEvent:
-INSERT INTO Event(id, title, startTime, description, color, coverIamge)
-VALUES (?,?, ?, ?, ?, ?);
+INSERT OR REPLACE INTO Event(id, title, startTime, description, coverIamge)
+VALUES (?,?, ?, ?, ?);
 
 deleteEvent:
 DELETE FROM Event

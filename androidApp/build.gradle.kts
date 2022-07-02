@@ -34,7 +34,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.1"
+        kotlinCompilerExtensionVersion = "1.2.0-beta03"
     }
     packagingOptions {
         resources {
@@ -58,13 +58,16 @@ dependencies {
     val lifecycleVersion = "2.2.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
 
+    // Date time
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.2")
+
     // Jetpack compose
 
     implementation("androidx.compose.ui:ui:1.1.1")
     // Tooling support (Previews, etc.)
     implementation("androidx.compose.ui:ui-tooling:1.1.1")
     // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    implementation("androidx.compose.foundation:foundation:1.1.1")
+    implementation("androidx.compose.foundation:foundation:1.2.0-beta03")
     // Material Design
     implementation("androidx.compose.material:material:1.1.1")
     // Material design icons
@@ -74,6 +77,7 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.4.0")
     // Integration with ViewModels
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.24.10-beta")
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.5.0-rc01")
     // UI Tests

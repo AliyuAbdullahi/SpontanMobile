@@ -10,6 +10,7 @@ import kotlin.test.Test
 import kotlinx.coroutines.runBlocking
 
 class AddUserUseCaseTest {
+
     private val repository: IUserRepository = mockk(relaxed = true)
     private val useCase = AddUserUseCase(repository)
 

@@ -10,16 +10,13 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-actual class Platform actual constructor() {
-    actual val platform: String = "Android ${android.os.Build.VERSION.SDK_INT}"
-}
-
 actual val httpClient: HttpClient = HttpClient() {
     install(Logging)
     install(ContentNegotiation) {
         json(Json {
             prettyPrint = true
             isLenient = true
+            ignoreUnknownKeys = true
         })
     }
 }
