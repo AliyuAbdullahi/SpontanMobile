@@ -13,7 +13,6 @@ class EventDao(private val db: SpontanDatabase) : IEventsDao {
                     id = cacheEvent.id,
                     title = cacheEvent.title,
                     description = cacheEvent.description,
-                    color = cacheEvent.color?.toInt()?.toColor(),
                     photo = cacheEvent.coverIamge,
                     startTime = cacheEvent.startTime
                 )
@@ -27,7 +26,6 @@ class EventDao(private val db: SpontanDatabase) : IEventsDao {
             description = event.description,
             startTime = event.startTime,
             coverIamge = event.photo,
-            color = event.color?.toLong()
         )
     }
 

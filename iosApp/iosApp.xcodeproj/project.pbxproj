@@ -21,6 +21,7 @@
 		A1E49BF42846B98B0018BA62 /* iosAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E49BF32846B98B0018BA62 /* iosAppTests.swift */; };
 		A1E49BFB2846B9B20018BA62 /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E49BFA2846B9B20018BA62 /* LoginViewModelTest.swift */; };
 		A1E49C00284DDE6C0018BA62 /* EventsListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E49BFF284DDE6C0018BA62 /* EventsListScreen.swift */; };
+		A1F6FB9A28718EE500DDC9D3 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6FB9928718EE500DDC9D3 /* EventListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		A1E49BFA2846B9B20018BA62 /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
 		A1E49BFD2846BF670018BA62 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../shared; sourceTree = "<group>"; };
 		A1E49BFF284DDE6C0018BA62 /* EventsListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventsListScreen.swift; path = presentation/eventslist/EventsListScreen.swift; sourceTree = "<group>"; };
+		A1F6FB9928718EE500DDC9D3 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EventListViewModel.swift; path = presentation/eventslist/EventListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				A1E49BCD2843FAD30018BA62 /* SplashScreen.swift */,
 				A1E49BCF284402940018BA62 /* LoadingView.swift */,
 				A1E49BFF284DDE6C0018BA62 /* EventsListScreen.swift */,
+				A1F6FB9928718EE500DDC9D3 /* EventListViewModel.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				A1E49BC428427AF30018BA62 /* SignupScreen.swift in Sources */,
 				A1E49BD0284402940018BA62 /* LoadingView.swift in Sources */,
+				A1F6FB9A28718EE500DDC9D3 /* EventListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

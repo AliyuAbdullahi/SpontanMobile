@@ -5,6 +5,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
     primary = DeepOrange200,
@@ -16,12 +17,7 @@ private val LightColorPalette = lightColors(
     primary = DeepOrange500,
     primaryVariant = DeepOrange700,
     secondary = Gray200,
-    onSecondary = Gray900,
-    onBackground = Gray900,
-    onSurface = Gray900,
-    background = Gray50,
-    surface = Gray50,
-    onPrimary = Gray50
+    onPrimary = Gray900
 )
 
 @Composable
@@ -34,7 +30,7 @@ fun SpontanTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composabl
 
     MaterialTheme(
         colors = colors,
-        typography = Typography,
+        typography = SpontanTypography,
         shapes = Shapes,
         content = content
     )

@@ -1,6 +1,7 @@
 package com.lek.spontan.events.data
 
-import com.lek.spontan.events.domain.Color
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 interface IEventsDao {
     fun getEvents(): List<Event>
@@ -10,19 +11,16 @@ interface IEventsDao {
     suspend fun deleteAllEvents()
 }
 
+@Serializable
 data class Event(
+    @SerialName("id")
     val id: String,
+    @SerialName("title")
     val title: String,
+    @SerialName("description")
     val description: String?,
-    val color: Color?,
-    val photo: String?,
+    @SerialName("cover_image")
+    val photo: String? = "_",
+    @SerialName("time")
     val startTime: Long?
 )
-
-fun Color.toLong(): Long {
-    return ordinal.toLong()
-}
-
-fun Int.toColor(): Color? {
-    return Color.values().firstOrNull { it.ordinal == this }
-}

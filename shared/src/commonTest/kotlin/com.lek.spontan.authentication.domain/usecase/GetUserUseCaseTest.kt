@@ -12,6 +12,7 @@ import kotlin.test.assertTrue
 import kotlinx.coroutines.runBlocking
 
 class GetUserUseCaseTest {
+
     private val repository: IUserRepository = mockk(relaxed = true)
     private val useCase = GetUserUseCase(repository)
 
