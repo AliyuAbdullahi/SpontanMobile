@@ -36,18 +36,21 @@ class EventsRepository(
     override val events: StateFlow<EventDomainResult>
         get() = mutableEventResult
 
-    override suspend fun getEvents(accessToken: String): Unit =
+    override suspend fun getEvents(accessToken: String): EventDomainResult =
         try {
             if (accessToken.isEmpty()) {
                 mutableEventResult.value = getEventFromLocalDatabase()
+                mutableEventResult.value
             } else {
                 mutableEventResult.value = getEventsFromServer(accessToken)
+                mutableEventResult.value
             }
         } catch (error: Throwable) {
             mutableEventResult.value = EventDomainResult(
                 data = eventDao.getEvents().map { it.toDomainModel() },
                 error = error.message.toString()
             )
+            mutableEventResult.value
         }
 
     override suspend fun addEvent(
@@ -100,7 +103,7 @@ class EventsRepository(
                 )
             }
         } catch (error: Throwable) {
-
+            // not handled yet
         }
     }
 

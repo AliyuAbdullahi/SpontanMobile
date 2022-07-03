@@ -12,7 +12,7 @@ interface IEventsRepository {
     fun setSelectedEvent(event: EventDomainData)
     fun getSelectedEvent(): EventDomainData?
     val events: StateFlow<EventDomainResult>
-    suspend fun getEvents(accessToken: String)
+    suspend fun getEvents(accessToken: String): EventDomainResult
     suspend fun addEvent(event: EventDomainData, accessToken: String): EventDomainResult
     suspend fun deleteEvent(id: String, accessToken: String)
     suspend fun deleteAllEvents(accessToken: String)
