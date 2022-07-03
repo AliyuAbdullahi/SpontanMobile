@@ -14,15 +14,15 @@
   **Spontan** is a mobile application for managing events. Built using [KMM](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html).
   
 #### Images from Android
-<img src="android_auth.png" width="480" height="800" />
-<img src="android_list.png" width="480" height="800" />
+<img src="android_auth.png" width="320" height="800" />
+<img src="android_list.png" width="320" height="800" />
 
 ####  Images from iOS
-<img src="ios_auth.png" width="380" height="700" />
-<img src="ios_list.png" width="380" height="700" />
+<img src="ios_auth.png" width="380" height="650" />
+<img src="ios_list.png" width="380" height="650" />
 
 ### Project Structure
-<img src="kmm.png" width="480" height="800" />
+<img src="kmm.png" width="400" height="500" />
 
  ### Architecture
  The Project is built using the [Clean Architecture](https://developer.android.com/topic/architecture?gclid=CjwKCAjw_ISWBhBkEiwAdqxb9i24YwlLSa_1H2Fvx9Ul4hQ0p4j7Gh7awjnS8BER1O8u8KH7BK8OFxoCSmsQAvD_BwE&gclsrc=aw.ds). 
